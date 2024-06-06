@@ -60,8 +60,14 @@ data = data[1:]
 for row in data:
     text_content = files[f'{row[0]}.txt']
     print('_' * 30)
-    print('Summarizing',text_content)
+    print('Summarizing',row[0],row[1],row[2])
+    print(text_content[:200])
     # Use LangChain to prompt the content and get a response
+
+    if text_content is None or text_content == '':
+        print('Skipping...')
+        continue
+
     input_prompt = f"Here is the raw job description. produce a comma separated list of required skills and experience. Do not produce any other response: {text_content}"
     output = llm.predict(input_prompt)
 
