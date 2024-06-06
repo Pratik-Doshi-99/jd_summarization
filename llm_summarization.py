@@ -33,7 +33,7 @@ def append_to_csv(file_path, data_tuple):
     :param data_tuple: tuple, data to append to the CSV file
     """
     with open(file_path, mode='a') as file:
-        file.write('|'.join(data_tuple) + '\n')
+        file.write('|'.join(data_tuple) + ';')
 
 
 # Check if the user provided an input file
