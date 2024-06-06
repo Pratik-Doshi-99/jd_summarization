@@ -68,7 +68,7 @@ for row in data:
         print('Skipping...')
         continue
 
-    input_prompt = f"Here is the raw job description. produce a comma separated list of required skills and experience. Do not produce any other response: {text_content}"
+    input_prompt = f"Here is the raw job description. produce a comma separated list of required skills and experience. Do not produce any other response before or after the summary: {text_content}"
     output = llm.predict(input_prompt)
 
     # Print the output (you can also store it in a new CSV file or database)
