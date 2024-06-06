@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pratik-doshi-llm
+spec:
+  containers:
+  - name: mypod
+    image: pytorch/pytorch
+    resources:
+      limits:
+        memory: 32Gi
+        cpu: 8
+        nvidia.com/a100: 1
+      requests:
+        memory: 24Gi
+        cpu: 6
+        nvidia.com/a100: 1
+    volumeMounts:
+    - mountPath: /pratik-doshi-volume
+      name: pratik-doshi-volume
+    command: ["sh", "-c", "echo 'Im a new pod' && sleep infinity"]
+  volumes:
+    - name: pratik-doshi-volume
+      persistentVolumeClaim:
+        claimName: pratik-doshi-volume
