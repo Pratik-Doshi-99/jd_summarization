@@ -7,7 +7,7 @@ import os
 
 # Check if the user provided an input file
 if len(sys.argv) != 3:
-    print("Usage: python script.py <input_csv_file>")
+    print("Usage: python jd_scrape.py <input_csv_file> <output_directory>")
     sys.exit(1)
 
 input_file = sys.argv[1]
@@ -43,7 +43,7 @@ with open(input_file, 'r') as csvfile:
 
 # Initialize the LangChain model and tokenizer
 #llm = Ollama(model="llama3:70b")
-append_to_csv('output.csv',('Company','Role','Description','Link'))
+#append_to_csv('output.csv',('Company','Role','Description','Link'))
 # Loop through each row in the CSV file
 data = data[1:]
 for row in data:
